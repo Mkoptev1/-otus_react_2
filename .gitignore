@@ -1,0 +1,13 @@
+.history
+.vscode
+node_modules
+dist
+storybook-static
+.storybook
+stories
+.idea
+coverage
+reports
+# stryker temp files
+.stryker-tmp
+.DS_Store
