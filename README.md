@@ -10,7 +10,8 @@
     npm install webpack webpack-cli --save-dev
 
 - установить и настроить babel: 
-    npm install --save-dev @babel/core @babel/cli @babel/preset-env npm install --save @babel/polyfill
+    npm install --save-dev @babel/core @babel/cli @babel/preset-env
+    npm install --save @babel/polyfill
     npm install --save-dev @babel/preset-react
 
 - установить и настроить typescript через babel preset: 

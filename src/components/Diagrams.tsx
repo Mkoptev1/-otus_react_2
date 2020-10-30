@@ -1,8 +1,6 @@
-import React, { FC } from 'react';
+import React from 'react';
 import styled from "@emotion/styled";
-import { IDiagramItem } from './Diagram';
-import { Diagram } from './Diagram';
-
+import { Diagram, IDiagramItem } from './Diagram';
 
 const Container = styled.div`
 border-style: solid;
