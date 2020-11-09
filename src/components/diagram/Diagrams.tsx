@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "@emotion/styled";
-import { Diagram, IDiagramItem } from './Diagram';
+import { Diagram } from './Diagram';
+import { DiagramsList } from './DiagramStruc'
 
 const Container = styled.div`
 border-style: solid;
@@ -10,20 +11,17 @@ padding: 10px;
 width: 710px;
 `
 
-export interface IDiagramsProps {
-    diagramItems: IDiagramItem[];
-    color: string;
-}
-
-const Diagrams: React.FC<IDiagramsProps> = ({diagramItems, color}) => {
+const Diagrams: React.FC<DiagramsList> = ({diagramItems, diagramColor, totalLeads}) => {
     return (
         <Container>
             {diagramItems.map(diagram => (
                 <Diagram 
+                    key={diagram.id}
+                    id={diagram.id}
                     desc={diagram.desc}
                     value={diagram.value}
-                    width={diagram.width}
-                    color={color}
+                    color={diagramColor}
+                    totalLeads={totalLeads}
                 />
             ))}
         </Container>

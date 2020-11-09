@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from "@emotion/styled";
+import { DiagramItem } from './DiagramStruc'
+
+const lineContainerWidth: number = 500;
 
 const Container = styled.div`
 display: flex;
@@ -22,7 +25,7 @@ const LineContainer = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-width: 500px;
+width: ${lineContainerWidth}px;
 `
 
 const TextInLine = styled.text`
@@ -41,22 +44,18 @@ align-items: center;
 justify-content: left;
 `
 
-export interface IDiagramItem {
-    desc: string;
-    value: number;
-    width: number;
-    color?: string;
-    id?: number;
+function getLineWidth(value: number, totalLeads: number): number {
+    return (lineContainerWidth * value)/totalLeads;
 }
 
-const Diagram: React.FC<IDiagramItem> = ({ desc, value, width, color }) => {
+const Diagram: React.FC<DiagramItem> = ({ desc, value, totalLeads, color }) => {
     return (
         <Container>
             <DescContainer>
                 <TextInDesc>{desc}</TextInDesc>
             </DescContainer>
             <LineContainer>
-                <Line width={width} color={color}>
+                <Line width={getLineWidth(value, totalLeads)} color={color}>
                     <TextInLine>{value}</TextInLine>
                 </Line>
             </LineContainer>

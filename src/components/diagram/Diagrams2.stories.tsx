@@ -1,6 +1,14 @@
-import React from 'react';
-import { Diagrams } from './diagram/Diagrams';
-import { DiagramsList } from './diagram/DiagramStruc'
+import React from "react"
+import { Story, Meta } from '@storybook/react/types-6-0';
+import { Diagrams } from './Diagrams';
+import { DiagramsList } from './DiagramStruc';
+import { withKnobs, text, number } from '@storybook/addon-knobs';
+
+export default {
+    title: 'DiagramsKnobs',
+    component: Diagrams,
+    decorators: [withKnobs],
+  } as Meta;
 
 const diagramProps: DiagramsList = {
     diagramItems: [
@@ -14,15 +22,11 @@ const diagramProps: DiagramsList = {
     diagramColor: 'blue',
     totalLeads: 500
 };
-    
-const App = () => (
-    <div>
-        <Diagrams 
-            diagramItems={diagramProps.diagramItems} 
-            diagramColor={diagramProps.diagramColor}
-            totalLeads ={diagramProps.totalLeads}
-        />
-    </div>
-)
 
-export {App}
+const Template: Story<DiagramsList> = (args) => <Diagrams  
+    diagramItems={diagramProps.diagramItems}
+    diagramColor={text('Color', 'red')}
+    totalLeads ={number('Total Leads', 500)}
+/>;
+
+export const Dinamic = Template.bind({});
