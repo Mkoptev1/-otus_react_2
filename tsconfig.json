@@ -7,13 +7,10 @@
         "@/*": ["src/*"]
       },
       "target": "es5",
-      "module": "commonjs",
-      "downlevelIteration": true,
-      "allowJs": true,
-      "jsx": "react",
+      "removeComments": true,
+      "outDir": "js",
       "sourceMap": true,
-      "strict": true,
-      "esModuleInterop": true
+      "outFile": "main.js"
     },
     "include": [
       "src/**/*",
