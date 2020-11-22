@@ -44,8 +44,16 @@ align-items: center;
 justify-content: left;
 `
 
-function getLineWidth(value: number, totalLeads: number): number {
-    return (lineContainerWidth * value)/totalLeads;
+export function getLineWidth(diagramLeads: number, totalLeads: number): number {    
+    if (diagramLeads > totalLeads) {
+        throw new TypeError("Leads amount in diagram cannot be greater than total leads");
+    }
+
+    if (diagramLeads <= 0) {
+        throw new TypeError("Leads amount in diagram cannot be less than zero or valid");
+    }
+
+    return (lineContainerWidth * diagramLeads)/totalLeads;
 }
 
 const Diagram: React.FC<DiagramItem> = ({ desc, value, totalLeads, color }) => {
